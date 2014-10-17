@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @golfer.name %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @golfer.birthday %>
+</p>
+
+<%= link_to 'Edit', edit_golfer_path(@golfer) %> |
+<%= link_to 'Back', golfers_path %>
