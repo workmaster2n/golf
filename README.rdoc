@@ -1,5 +1,7 @@
 == README
 
+[ ![Codeship Status for workmaster2n/golf](https://www.codeship.io/projects/c70f62d0-3861-0132-3b4a-5ab80a2f796c/status)](https://www.codeship.io/projects/41990)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
