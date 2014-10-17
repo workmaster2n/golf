@@ -17,6 +17,7 @@ class CoursesController < ApplicationController
     @course = Course.new
     (1..18).each do |number|
       @course.holes.new(number: number)
+    end
   end
 
   # GET /courses/1/edit
