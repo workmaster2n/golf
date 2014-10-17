@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :holes
+
+  resources :courses
+
+  resources :games
+
   resources :golfers
 
   root 'golfers#index'
