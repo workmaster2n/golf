@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: scores
+#
+#  id         :integer          not null, primary key
+#  golfer_id  :integer
+#  game_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  strokes    :integer
+#  hole_id    :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  golfer_id: 1
+  game_id: 1
+
+two:
+  golfer_id: 1
+  game_id: 1
