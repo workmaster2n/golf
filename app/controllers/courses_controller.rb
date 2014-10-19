@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
   def new
     @course = Course.new
     (1..18).each do |number|
-      @course.holes.new(number: number)
+      @course.holes.build(number: number)
     end
   end
 
@@ -72,6 +72,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name)
+      params.require(:course).permit(:name, holes_attributes: [:id ,:number])
     end
 end

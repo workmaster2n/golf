@@ -8,9 +8,8 @@
   .field
     = f.label :name
     = f.text_field :name
-    - @course.holes.each do |hole|
-      = f.fields_for :holes do |hole_form|
-        = hole_form.label :number
-        = hole_form.text_field :number
+    = f.fields_for :holes do |hole_form|
+      = hole_form.label :number
+      = hole_form.text_field :number
   .actions
     = f.submit
