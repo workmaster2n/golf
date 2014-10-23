@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: teams
+#
+#  id         :integer          not null, primary key
+#  swing      :boolean          default(FALSE)
+#  game_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  swing: 
+  false}: MyString
+  game_id: 
+
+two:
+  swing: 
+  false}: MyString
+  game_id: 

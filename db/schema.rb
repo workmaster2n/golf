@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022151332) do
+ActiveRecord::Schema.define(version: 20141023191504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,5 +60,14 @@ ActiveRecord::Schema.define(version: 20141022151332) do
     t.integer  "hole_id"
     t.integer  "competitor_id"
   end
+
+  create_table "teams", force: true do |t|
+    t.boolean  "swing",      default: false
+    t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams", ["game_id"], name: "index_teams_on_game_id", using: :btree
 
 end
