@@ -11,4 +11,7 @@
 
 class Team < ActiveRecord::Base
   belongs_to :game
+
+  has_many :team_competitors
+  has_many :competitors, through: :team_competitors
 end
