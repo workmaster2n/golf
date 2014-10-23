@@ -14,4 +14,6 @@ class Competitor < ActiveRecord::Base
   belongs_to :golfer
   belongs_to :game
   has_many :scores
+
+  accepts_nested_attributes_for :scores
 end

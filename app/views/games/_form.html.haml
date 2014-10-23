@@ -13,9 +13,9 @@
     = f.label :played_on
     %br/
     = f.date_select :played_on
-    = f.simple_fields_for :golfers do |golfers_form|
-      = golfers_form.input :name
-      = golfers_form.simple_fields_for :scores do |scores_form|
-        = scores_form.input :strokes
+    = f.simple_fields_for :competitors do |competitors_form|
+      = competitors_form.input :handicap
+      -#= competitors_form.simple_fields_for :scores do |scores_field|
+      -#  = scores_field.input :strokes
   .actions
     = f.submit nil, class: "btn btn-primary"
