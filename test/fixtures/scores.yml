@@ -13,9 +13,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  golfer_id: 1
-  game_id: 1
+  competitor_id: 1
 
 two:
-  golfer_id: 1
-  game_id: 1
+  competitor_id: 2
