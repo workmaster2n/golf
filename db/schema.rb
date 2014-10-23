@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019023554) do
+ActiveRecord::Schema.define(version: 20141022151332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "competitors", force: true do |t|
+    t.integer  "golfer_id"
+    t.integer  "handicap"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "game_id"
+  end
+
+  add_index "competitors", ["golfer_id"], name: "index_competitors_on_golfer_id", using: :btree
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -44,12 +54,11 @@ ActiveRecord::Schema.define(version: 20141019023554) do
   end
 
   create_table "scores", force: true do |t|
-    t.integer  "golfer_id"
-    t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "strokes"
     t.integer  "hole_id"
+    t.integer  "competitor_id"
   end
 
 end

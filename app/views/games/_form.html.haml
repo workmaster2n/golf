@@ -1,0 +1,21 @@
+= simple_form_for(@game) do |f|
+  - if @game.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@game.errors.count, "error")
+        prohibited this game from being saved:
+      %ul
+        - @game.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.association :course
+  .field
+    = f.label :played_on
+    %br/
+    = f.date_select :played_on
+    = f.simple_fields_for :golfers do |golfers_form|
+      = golfers_form.input :name
+      = golfers_form.simple_fields_for :scores do |scores_form|
+        = scores_form.input :strokes
+  .actions
+    = f.submit nil, class: "btn btn-primary"

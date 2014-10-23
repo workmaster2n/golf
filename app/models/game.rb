@@ -11,7 +11,8 @@
 
 class Game < ActiveRecord::Base
   belongs_to :course
-  has_many :golfers
+  has_many :competitors
+  has_many :golfers, through: :competitors
   has_many :scores
 
   accepts_nested_attributes_for :golfers

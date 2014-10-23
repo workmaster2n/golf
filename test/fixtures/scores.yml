@@ -2,13 +2,12 @@
 #
 # Table name: scores
 #
-#  id         :integer          not null, primary key
-#  golfer_id  :integer
-#  game_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  strokes    :integer
-#  hole_id    :integer
+#  id            :integer          not null, primary key
+#  created_at    :datetime
+#  updated_at    :datetime
+#  strokes       :integer
+#  hole_id       :integer
+#  competitor_id :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

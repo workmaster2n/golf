@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: competitors
+#
+#  id         :integer          not null, primary key
+#  golfer_id  :integer
+#  handicap   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  game_id    :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  golfer_id: 
+  handicap: 1
+
+two:
+  golfer_id: 
+  handicap: 1
