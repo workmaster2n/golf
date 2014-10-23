@@ -20,13 +20,14 @@ class Competitor < ActiveRecord::Base
 
   accepts_nested_attributes_for :scores
 
-  after_create :create_scores
-
-  private
+  def set_score_for_hole(hole_number, strokes)
+    score = self.scores.select {|score| score.hole.number == hole_number}.first
+    score.strokes = strokes
+  end
 
   def create_scores
     game.course.holes.each do |hole|
-      scores.create(hole_id: hole.id)
+      scores.create(hole: hole)
     end
   end
 end

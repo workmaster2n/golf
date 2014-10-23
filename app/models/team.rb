@@ -14,4 +14,13 @@ class Team < ActiveRecord::Base
 
   has_many :team_competitors
   has_many :competitors, through: :team_competitors
+
+  def low_score_for_hole(number)
+    scores = competitors.map do |competitor|
+      competitor.scores.map do |score|
+        score.strokes if score.hole.number == number
+      end
+    end
+    scores.flatten.min
+  end
 end
