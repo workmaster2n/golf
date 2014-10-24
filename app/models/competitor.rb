@@ -27,7 +27,7 @@ class Competitor < ActiveRecord::Base
 
   def create_scores
     game.course.holes.each do |hole|
-      scores.create(hole: hole)
+      scores.new(hole: hole)
     end
   end
 end

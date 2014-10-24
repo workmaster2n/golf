@@ -13,21 +13,21 @@ require 'test_helper'
 
 class TeamTest < ActiveSupport::TestCase
   test 'low score' do
-    team = Team.create
-    game = Game.create
-    course = Course.create
-    course.holes << Hole.create(number: 1)
+    team = Team.new
+    game = Game.new
+    course = Course.new
+    course.holes << Hole.new(number: 1)
 
     game.course = course
 
     team.game = game
 
-    golfer1 = Golfer.create
-    golfer2 = Golfer.create
+    golfer1 = Golfer.new
+    golfer2 = Golfer.new
 
 
-    competitor1 = team.competitors.create(golfer: golfer1, game: game)
-    competitor2 = team.competitors.create(golfer: golfer2, game: game)
+    competitor1 = team.competitors.new(golfer: golfer1, game: game)
+    competitor2 = team.competitors.new(golfer: golfer2, game: game)
 
     team.competitors.each do |competitor|
       competitor.create_scores
