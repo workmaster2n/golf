@@ -23,4 +23,40 @@ class Team < ActiveRecord::Base
     end
     scores.flatten.min
   end
+
+  def front_nine_score(other_team)
+
+    score = 0
+    streak = 0
+    (1..8).each do |hole_number|
+      if low_score_for_hole(hole_number) < other_team.low_score_for_hole(hole_number)
+        streak += 1
+        if streak == 2
+          score += 1
+          streak = 0
+        end
+      end
+      if low_score_for_hole(hole_number) > other_team.low_score_for_hole(hole_number)
+        streak -= 1
+        if streak == -2
+          score -= 1
+          streak = 0
+        end
+      end
+    end
+
+    if score>0
+      if low_score_for_hole(9) < other_team.low_score_for_hole(9)
+        return 2*score
+      end
+    end
+    if score<0
+      if low_score_for_hole(9) > other_team.low_score_for_hole(9)
+        return 2*score
+      end
+    end
+
+    score
+  end
+
 end

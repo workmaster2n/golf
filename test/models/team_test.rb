@@ -10,6 +10,7 @@
 #
 
 require 'test_helper'
+require 'minitest/mock'
 
 class TeamTest < ActiveSupport::TestCase
   test 'low score' do
@@ -33,9 +34,14 @@ class TeamTest < ActiveSupport::TestCase
       competitor.create_scores
     end
 
-    competitor1.set_score_for_hole(1,1)
-    competitor2.set_score_for_hole(1,2)
+    competitor1.set_score_for_hole(1, 1)
+    competitor2.set_score_for_hole(1, 2)
 
     assert_equal(1, team.low_score_for_hole(1))
+  end
+
+  test 'team wins 2 in a row' do
+    regular_team = Team.new
+    swing_team = Team.new
   end
 end
