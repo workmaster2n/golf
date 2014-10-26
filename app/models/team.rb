@@ -49,10 +49,16 @@ class Team < ActiveRecord::Base
       if low_score_for_hole(9) < other_team.low_score_for_hole(9)
         return 2*score
       end
+      if low_score_for_hole(9) > other_team.low_score_for_hole(9)
+        return 0
+      end
     end
     if score<0
       if low_score_for_hole(9) > other_team.low_score_for_hole(9)
         return 2*score
+      end
+      if low_score_for_hole(9) < other_team.low_score_for_hole(9)
+        return 0
       end
     end
 

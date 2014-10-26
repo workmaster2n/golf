@@ -54,4 +54,31 @@ describe Team do
     expect(regular_team.front_nine_score(swing_team)).to eq(8)
     expect(swing_team.front_nine_score(regular_team)).to eq(-8)
   end
+
+  it 'regular team wins 8 but loses 9' do
+    regular_team = Team.new
+    swing_team = Team.new
+
+    allow(regular_team).to receive(:low_score_for_hole).with(1) {1}
+    allow(regular_team).to receive(:low_score_for_hole).with(2) {1}
+    allow(regular_team).to receive(:low_score_for_hole).with(3) {1}
+    allow(regular_team).to receive(:low_score_for_hole).with(4) {1}
+    allow(regular_team).to receive(:low_score_for_hole).with(5) {1}
+    allow(regular_team).to receive(:low_score_for_hole).with(6) {1}
+    allow(regular_team).to receive(:low_score_for_hole).with(7) {1}
+    allow(regular_team).to receive(:low_score_for_hole).with(8) {1}
+    allow(regular_team).to receive(:low_score_for_hole).with(9) {2}
+    allow(swing_team).to receive(:low_score_for_hole).with(1) {2}
+    allow(swing_team).to receive(:low_score_for_hole).with(2) {2}
+    allow(swing_team).to receive(:low_score_for_hole).with(3) {2}
+    allow(swing_team).to receive(:low_score_for_hole).with(4) {2}
+    allow(swing_team).to receive(:low_score_for_hole).with(5) {2}
+    allow(swing_team).to receive(:low_score_for_hole).with(6) {2}
+    allow(swing_team).to receive(:low_score_for_hole).with(7) {2}
+    allow(swing_team).to receive(:low_score_for_hole).with(8) {2}
+    allow(swing_team).to receive(:low_score_for_hole).with(9) {1}
+
+    expect(regular_team.front_nine_score(swing_team)).to eq(0)
+    expect(swing_team.front_nine_score(regular_team)).to eq(0)
+  end
 end
